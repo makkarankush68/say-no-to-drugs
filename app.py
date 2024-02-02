@@ -13,4 +13,16 @@ def homepage():
 def podcast():
     return rt('podcast.html')
 
+@app.route('/login')
+def login():
+    return rt('login.html')
+
+@app.route('/update')
+def update():
+    return rt('update.html')
+
+@app.route('/aboutus')
+def aboutus():
+    return rt('aboutus.html')
+
 app.run( debug=True )

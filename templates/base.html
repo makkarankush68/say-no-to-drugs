@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='./style/dist/output.css')}}">
     {% block head %}{% endblock %}
 
 
@@ -11,11 +12,109 @@
 </head>
 
 <body>
-<!-- \\nav -->
+    <!-- \\nav -->
+
+    <nav>
+        <div
+            class=" h-fit bg-gradient-to-b from-orange-400 via-white to-green-800 flex flex-row justify-between p-5 flex-wrap">
+
+            <div class="flex flex-row flex-wrap justify-center">
+                <div class=" overflow-hidden rounded-full w-fit  ">
+                    <img class=" h-16 w-16" src="{{url_for('static', filename='./photos/logo.jpeg')}}" alt="logo">
+                </div>
+                <p class=" ml-5 text-blue-950 text-2xl font-bold">HARYANA STATE NACOTICS <br> CONTROL BUREAU</p>
+            </div>
+            <div class="flex flex-row flex-wrap font-bold text-blue-950 justify-around content-center ">
+                <a class="p-2  " href="{{url_for('homepage')}}">HOMEPAGE</a>
+                <a class="p-2  " href="{{url_for('login')}}">LOGIN</a>
+                <a class="p-2  " href="{{url_for('update')}}">UPDATE</a>
+                <a class="p-2  " href="{{url_for('aboutus')}}">ABOUT US</a>
+            </div>
+
+        </div>
+    </nav>
 
     {% block content %}
     {% endblock content %}
-<!-- footer  -->
+    <!-- footer  -->
+
+
+    <footer>
+        <div class="p-8 flex flex-col justify-center content-center">
+            <p class=" text-center text-3xl">To enjoy more of our contents</p>
+
+
+
+            <div class=" flex justify-center" >
+
+                <div class="flex flex-row flex-wrap justify-center w-3/4">
+
+
+                    <a href="" class=" flex p-8">
+                        <img class=" rounded-full h-8" src="{{url_for('static', filename='./photos/logo.jpeg')}}"
+                            alt="">
+                        <span class=" ml-2">go to our instagram page</span>
+                    </a>
+
+                    <a href="" class=" flex p-8">
+                        <img class=" rounded-full h-8" src="{{url_for('static', filename='./photos/logo.jpeg')}}"
+                            alt="">
+                        <span class=" ml-2">go to our instagram page</span>
+                    </a>
+
+                    <a href="" class=" flex p-8">
+                        <img class=" rounded-full h-8" src="{{url_for('static', filename='./photos/logo.jpeg')}}"
+                            alt="">
+                        <span class=" ml-2">go to our instagram page</span>
+                    </a>
+
+                    <a href="" class=" flex p-8">
+                        <img class=" rounded-full h-8" src="{{url_for('static', filename='./photos/logo.jpeg')}}"
+                            alt="">
+                        <span class=" ml-2">go to our instagram page</span>
+                    </a>
+
+                    <a href="" class=" flex p-8">
+                        <img class=" rounded-full h-8" src="{{url_for('static', filename='./photos/logo.jpeg')}}"
+                            alt="">
+                        <span class=" ml-2">go to our instagram page</span>
+                    </a>
+
+
+                    <a href="" class=" flex p-8">
+                        <img class=" rounded-full h-8" src="{{url_for('static', filename='./photos/logo.jpeg')}}"
+                            alt="">
+                        <span class=" ml-2">go to our instagram page</span>
+                    </a>
+
+
+
+
+                    
+
+                  
+
+                    
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+        <div class=" p-8 text-white bg-yellow-950 flex flex-col justify-center content-center">
+            <p class=" text-white text-center">nasha nivaran network copyright @2024</p>
+            <div class=" flex flex-wrap justify-center">
+                <a class="pt-6 pr-6" href="">About us</a>
+                <a class="pt-6 pl-6" href="">Privacy policy</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
