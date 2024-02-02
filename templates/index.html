@@ -101,7 +101,7 @@
 {% block content %}
 
 <div>
-    <div class="slideshow-container w-full h-[50vw] relative" >
+    <div class="slideshow-container w-full h-[50vw] relative">
 
         <!-- Full-width images with number and caption text -->
         <div class="mySlides fade  w-full h-full">
@@ -111,15 +111,17 @@
         </div>
 
         <div class="mySlides fade  w-full h-full">
-          <div class="numbertext">2 / 3</div>
-          <img class=" w-full h-full" src="{{url_for('static', filename='./photos/slide2.jpeg')}}" style="width:100% ;min-height: 100%;">
-          <div class="text">Caption Two</div>
+            <div class="numbertext">2 / 3</div>
+            <img class=" w-full h-full" src="{{url_for('static', filename='./photos/slide2.jpeg')}}"
+                style="width:100% ;min-height: 100%;">
+            <div class="text">Caption Two</div>
         </div>
-      
+
         <div class="mySlides fade  w-full h-full">
-          <div class="numbertext">3 / 3</div>
-          <img class=" w-full h-full" src="{{url_for('static', filename='./photos/slide3.jpeg')}}" style="width:100%;min-height: 100%;">
-          <div class="text">Caption Three</div>
+            <div class="numbertext">3 / 3</div>
+            <img class=" w-full h-full" src="{{url_for('static', filename='./photos/slide3.jpeg')}}"
+                style="width:100%;min-height: 100%;">
+            <div class="text">Caption Three</div>
         </div>
 
         <!-- Next and previous buttons -->
@@ -142,6 +144,118 @@
     </div>
 </div>
 
+
+
+
+
+<div class="flex flex-row flex-wrap justify-center">
+    <div class=" w-1/2 m-3 flex justify-center content-center">
+
+        <h3 class=" text-4xl text-left">Here is the glimpse <br> of our community’s <br> Breathtaking achievements.</h3>
+
+
+    </div>
+    <div class="grid grid-cols-2 m-3">
+
+
+        <div class="flex flex-col justify-start">
+
+            <p class=" text-2xl font-medium m-1">Millions</p>
+            <span class="m-2">of volunteers had joined us.</span>
+
+        </div>
+
+        <div class="flex flex-col justify-start">
+
+            <p class=" text-2xl font-medium m-1">Millions</p>
+            <span class="m-2">of volunteers had joined us.</span>
+
+        </div>
+
+        <div class="flex flex-col justify-start">
+
+            <p class=" text-2xl font-medium m-1">Millions</p>
+            <span class="m-2">of volunteers had joined us.</span>
+
+        </div>
+
+        <div class="flex flex-col justify-start">
+
+            <p class=" text-2xl font-medium m-1">Millions</p>
+            <span class="m-2">of volunteers had joined us.</span>
+
+        </div>
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+<div class=" bg-gradient-to-b from-orange-300 h-fit p-3 text-center">
+    <p class="text-2xl">ways for contributing towards the building of a <b>shreshtha bharat</b>
+    </p>
+</div>
+
+
+<div class="flex flex-col items-center">
+
+    <a class="m-8 w-3/4" href="">
+        <div class=" bg-red-300 p-5 flex flex-col items-center w-full rounded-xl ">
+            <p class="text-xl font-bold pb-3">featured this week</p>
+            <div class="flex flex-row flex-wrap">
+                <div class=" flex flex-col items-center w-2/3 h-[20vw]">
+                    <img class="w-full h-full" src="{{url_for('static', filename='./photos/image.png')}}"
+                        alt="abhi and niyu">
+                        <p>abhi and
+                            niyu</p>
+                </div>
+                <div class="w-1/3  flex items-center">
+                    <p class="text-center">FEATURING India’s best pod-casters, counsellors and many more kind of influencers to contribute
+                        towards this selfless service. </p>
+                </div>
+            </div>
+        </div>
+    </a>
+
+
+
+</div>
+
+
+
+
+
+<div class="flex flex-col justify-center content-center m-5">
+    <div>
+        <p class="text-xl text-center font-black">Important links:</p>
+    </div>
+
+    <div class="flex flex-row justify-around flex-wrap m-2 p-2">
+
+        <div class=" m-3 p-1 flex flex-col justify-center items-center">
+            <img class="w-28" src="{{url_for('static', filename='./photos/logo.jpeg')}}" alt="">
+            <a class=" text-center" href=""> haryanastate narcotics control bureau</a>
+        </div>
+
+
+        <div class=" m-3 p-1 flex flex-col justify-center items-center">
+            <img class="w-28" src="{{url_for('static', filename='./photos/logo.jpeg')}}" alt="">
+            <a class=" text-center" href=""> haryanastate narcotics control bureau</a>
+        </div>
+
+        <div class=" m-3 p-1 flex flex-col justify-center items-center">
+            <img class="w-28" src="{{url_for('static', filename='./photos/logo.jpeg')}}" alt="">
+            <a class=" text-center" href=""> haryanastate narcotics control bureau</a>
+        </div>
+    </div>
+
+
+</div>
 
 
 <script>let slideIndex = 1;
