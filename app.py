@@ -9,6 +9,8 @@ app=Flask(__name__)
 def homepage():
     return rt('index.html')
 
-
+@app.route('/podcast')
+def podcast():
+    return rt('podcast.html')
 
 app.run( debug=True )
