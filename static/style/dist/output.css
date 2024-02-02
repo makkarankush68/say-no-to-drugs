@@ -913,3 +913,9 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+@media (min-width: 768px) {
+  .md\:text-\[40px\] {
+    font-size: 40px;
+  }
+}
+
