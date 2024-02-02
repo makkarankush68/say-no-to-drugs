@@ -1,10 +1,7 @@
 {% extends "base.html" %} {% block head %}
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap"
-  rel="stylesheet"
-/>
+<link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap" rel="stylesheet" />
 <style>
   .inknut-antiqua-light {
     font-family: "Inknut Antiqua", serif;
@@ -12,102 +9,71 @@
     font-style: normal;
   }
 </style>
-{% endblock head%} {% block title %} pocast page {% endblock %} {% block content
-%}
+{% endblock head%} {% block title %} pocast page {% endblock %} 
+
+{% block content%}
 
 <!-- wrapper -->
 <div class="wrapper">
   <!-- flag section -->
-  <section
-    id="indian-flag"
-    class="m-auto uppercase overflow-hidden relative mt-14"
-  >
-    <img
-      src="{{url_for('static', filename='./photos/flag.png')}}"
-      style="
+  <section id="indian-flag" class="m-auto uppercase overflow-hidden relative mt-14">
+    <img src="{{url_for('static', filename='./photos/flag.png')}}" style="
         height: 430px;
         margin: auto;
         scale: crop;
-        transform: scale(2.2) translateY(-7px);
-      "
-      alt="flag"
-    />
+        transform: scale(2.2) translateY(-7px);" alt="flag" />
 
-    <span
-      class="inknut-antiqua-light absolute font-bold text-[60px] top-0 w-[100%] text-center"
-    >
+    <span class="inknut-antiqua-light absolute font-bold text-[60px] top-0 w-[100%] text-center">
       be a perceiver, be a creator
     </span>
-    <span
-      class="inknut-antiqua-light absolute font-bold text-[60px] bottom-0 w-[100%] text-center"
-    >
+    <span class="inknut-antiqua-light absolute font-bold text-[60px] bottom-0 w-[100%] text-center">
       be a nation-builder
     </span>
   </section>
 
   <!-- featured section -->
-  <section
-    id="featured"
-    style="
+  <section id="featured" style="
       background: linear-gradient(180deg, #ffffff 0%, #ffa207 100%);
       font-size: 55px;
       font-weight: 400;
       line-height: 73px;
       letter-spacing: 0.22em;
       text-align: center;
-    "
-    class="mt-28 uppercase text-center pb-12"
-  >
+    " class="mt-28 uppercase text-center pb-12">
     featured this week
-    <div
-      style="
+    <div style="
         font-size: 32px;
         font-weight: 400;
         line-height: 69px;
         letter-spacing: 0em;
         text-align: center;
-      "
-      class="grid grid-cols-2 w-[95%] m-auto mt-10 gap-y-8"
-    >
+      " class="grid grid-cols-2 w-[95%] m-auto mt-10 gap-y-8">
       <!-- image 1 -->
       <div class="">
-        <img
-          src="{{url_for('static', filename='./photos/abhiandniyu.png')}}"
-          style="height: 312px; margin: auto; border: 4px solid black"
-          alt=""
-        />
+        <img src="{{url_for('static', filename='./photos/abhiandniyu.png')}}"
+          style="height: 312px; margin: auto; border: 4px solid black" alt="" />
         <span>ABHI AND NIYU</span>
       </div>
       <!-- image 2 -->
       <div class="">
-        <img
-          src="{{url_for('static', filename='./photos/robin.png')}}"
-          style="
+        <img src="{{url_for('static', filename='./photos/robin.png')}}" style="
             height: 312px;
             margin: auto;
             border-radius: 50%;
             border: 4px solid black;
-          "
-          alt=""
-        />
+          " alt="" />
         <span>LOCATE ROBIN</span>
       </div>
       <!-- image 3 -->
       <div class="">
-        <img
-          src="{{url_for('static', filename='./photos/ankit.png')}}"
-          style="height: 395px; margin: auto; border: 4px solid black"
-          alt=""
-        />
+        <img src="{{url_for('static', filename='./photos/ankit.png')}}"
+          style="height: 395px; margin: auto; border: 4px solid black" alt="" />
         <span>ANKIT BAIYANPURIA</span>
       </div>
       <!-- image 4 -->
       <div class=" ">
-        <img
-          src="{{url_for('static', filename='./photos/trs.png')}}"
-          style="height: 395px; margin: auto; border: 4px solid black"
-          alt=""
-        />
+        <img src="{{url_for('static', filename='./photos/trs.png')}}"
+          style="height: 395px; margin: auto; border: 4px solid black" alt="" />
         <span>TRS CLIPS</span>
       </div>
     </div>
@@ -115,20 +81,20 @@
 
   <!-- register -->
   <section id="register" class="mt-20 mb-20 w-[100%]">
-    <div
-      style="background: linear-gradient(0deg,rgba(102, 0, 255, 0),rgba(102, 0, 255, 0)),linear-gradient(180deg, #ffa207 0%, #ff7c03 100%);
+    <div style="background: linear-gradient(0deg,rgba(102, 0, 255, 0),rgba(102, 0, 255, 0)),linear-gradient(180deg, #ffa207 0%, #ff7c03 100%);
           font-size: 30px;
           font-weight: 600;
           line-height: 82px;
           letter-spacing: 0.20000000298023224px;
-          text-align: center;"
-      class="relative w-[80%] uppercase m-auto h-[100px] pt-2">
-    register yourself as a volunteer in our community here
-    
-    <!-- side images -->
-    <img src="{{url_for('static', filename='./photos/registerSides.png')}}" class="absolute h-[200px] left-[-5%] top-[-50%] rotate-180" alt="">
-    <img src="{{url_for('static', filename='./photos/registerSides.png')}}" class="absolute h-[200px] top-[-50%] right-[-5%]" alt="">
-</div>
+          text-align: center;" class="relative w-[80%] uppercase m-auto h-[100px] pt-2">
+      register yourself as a volunteer in our community here
+
+      <!-- side images -->
+      <img src="{{url_for('static', filename='./photos/registerSides.png')}}"
+        class="absolute h-[200px] left-[-5%] top-[-50%] rotate-180" alt="">
+      <img src="{{url_for('static', filename='./photos/registerSides.png')}}"
+        class="absolute h-[200px] top-[-50%] right-[-5%]" alt="">
+    </div>
 
   </section>
 
