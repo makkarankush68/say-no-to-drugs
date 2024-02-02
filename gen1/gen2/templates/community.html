@@ -1,0 +1,425 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memes Page</title>
+    <!-- IconScout CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <style>
+        a{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h2 class="logo">
+                GENZI BODHI
+            </h2>
+            <div class="search-bar">
+                <i class="uil uil-search"></i>
+                <input type="search" placeholder="Search for creators, inspirations, and projects">
+            </div>
+            <div class="create">
+                <div class="profile-photo">
+                    <img src="./images/profile-1.jpg" alt="" style="opacity: 0;">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-------------------------------- MAIN ----------------------------------->
+    <main>
+        <div class="container">
+            <!----------------- LEFT -------------------->
+            <div class="left">
+                {% if user %}
+                <a class="profile">
+                    <div class="profile-photo">
+                        <img src="./images/profile-1.jpg">
+                    </div>
+                    <div class="handle">
+                        <h4>{{userid}}</h4>
+                        <p class="text-muted">
+                            @username
+                        </p>
+                    </div>
+                </a>
+                {% endif %} 
+                <!----------------- SIDEBAR -------------------->
+                <div class="sidebar">
+                    <a class="menu-item" href="/home">
+                        <span><i class="uil uil-home"></i></span>
+                        <h3>Home</h3>   
+                    </a>
+                    <a class="menu-item" href="/podcast">
+                        <span><i class="uil uil-compass"></i></span>
+                        <h3>Podcast</h3>
+                    </a>
+                    <a class="menu-item"  id="notifications">
+                        <span><i class="uil uil-bell"><small class="notification-count">9+</small></i></span>
+                        <h3>Notification</h3>
+                        <!--------------- NOTIFICATION POPUP --------------->
+                        <div class="notifications-popup">
+                            <div>
+                                <div class="profile-photo">
+                                    <img src="./images/profile-2.jpg">
+                                </div>
+                                <div class="notification-body">
+                                    <b>Keke Benjamin</b> joins the committee #PurePathPledge
+                                    <small class="text-muted">2 Days Ago</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="profile-photo">
+                                    <img src="./images/profile-3.jpg">
+                                </div>
+                                <div class="notification-body">
+                                    <b>John Doe</b> scheduled an Event-ZeroToleranceRally
+                                    <small class="text-muted">1 Hour Ago</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="profile-photo">
+                                    <img src="./images/profile-4.jpg">
+                                </div>
+                                <div class="notification-body">
+                                    <b>Marry Oppong</b> and <b>283 Others</b> liked your post
+                                    <small class="text-muted">4 Minutes Ago</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="profile-photo">
+                                    <img src="./images/profile-5.jpg">
+                                </div>
+                                <div class="notification-body">
+                                    <b>Doris Y. Lartey</b> commented on a post you are tagged in
+                                    <small class="text-muted">2 Days Ago</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="profile-photo">
+                                    <img src="./images/profile-6.jpg">
+                                </div>
+                                <div class="notification-body">
+                                    <b>Keyley Jenner</b> commented on a post you are tagged in
+                                    <small class="text-muted">1 Hour Ago</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="profile-photo">
+                                    <img src="./images/profile-7.jpg">
+                                </div>
+                                <div class="notification-body">
+                                    <b>Jane Doe</b> commented on your post
+                                    <small class="text-muted">1 Hour Ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <!--------------- END NOTIFICATION POPUP --------------->
+                    </a>
+                    <a class="menu-item" id="messages-notifications">
+                        <span><i class="uil uil-envelope-alt"><small class="notification-count">6</small></i></span>
+                        <h3>Messages</h3>
+                    </a>
+                    <a class="menu-item" href="/quiz">
+                        <span><i class="uil uil-bookmark"></i></span>
+                        <h3>Quiz page</h3>
+                    </a>
+                    <a class="menu-item" href="/events">
+                        <span><i class="uil uil-chart-line"></i></span>
+                        <h3>Upcoming Events</h3>
+                    </a>
+                    <a class="menu-item" id="theme">
+                        <span><i class="uil uil-palette"></i></span>
+                        <h3>Theme</h3>
+                    </a>
+                    <a class="menu-item">
+                        <span><i class="uil uil-setting"></i></span>
+                        <h3>Connect us!</h3>
+                    </a>
+                </div>
+            </div>
+
+            <!----------------- MIDDLE -------------------->
+            <div class="middle">
+                {% if user %}
+                <form action="posts" class="create-post" method='post' enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <div class="profile-photo">
+                        <img src="./images/profile-1.jpg">
+                    </div>
+                    <input name="desc" type="text" placeholder="What's on your mind, {{userid}} ?" id="create-post">
+                    <label for="upload-file" style="padding-right: 10px;cursor: pointer;">
+                        <i class="fa-solid fa-upload"></i>
+                    </label>
+                    <input type="file" name="file" id="upload-file" style="display:none">
+                    <button class="btn btn-primary">Post</button>
+                </form>
+                {% else %}
+                <div>Please login to create a post</div>
+                {% endif %}
+                <!----------------- FEEDS -------------------->
+                <div class="feeds">
+                    <!----------------- FEED 1 -------------------->
+                    {% for pos in posts %}
+                    <div class="feed">
+                        <div class="head">
+                            <div class="user">
+                                <div class="profile-photo">
+                                    <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png">
+                                </div>
+                                <div class="info">
+                                    <h3>{{pos.uploader}}</h3>
+                                    <small>{{pos.time}}</small>
+                                </div>
+                            </div>
+                            <span class="edit">
+                                <i class="uil uil-ellipsis-h"></i>
+                            </span>
+                        </div>
+
+                        <div class="photo">
+                            <img src="{{pos.file.url}}">
+                        </div>
+
+                        <div class="action-buttons">
+                            <div class="interaction-buttons">
+                                <span><i class="uil uil-heart"></i></span>
+                                <span><i class="uil uil-comment-dots"></i></span>
+                                <span><i class="uil uil-share-alt"></i></span>
+                            </div>
+                            <div class="bookmark">
+                                <span><i class="uil uil-bookmark-full"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="caption">
+                            <p><b>{{pos.uploader}}</b> {{pos.desc}} 
+                            <span class="harsh-tag">#lifestyle</span></p>
+                        </div>
+                    
+                      </div>
+                    <!----------------- END OF FEED 1 -------------------->
+                    {% endfor %}
+                </div>
+                <!----------------- END OF FEEDS -------------------->
+            </div>
+             <!----------------- END OF MIDDLE -------------------->
+
+            <!----------------- RIGHT -------------------->
+            <div class="right">
+                <!------- MESSAGES ------->
+                <div class="messages">
+                    <div class="heading">
+                        <h4>Messages</h4>
+                        <i class="uil uil-edit"></i>
+                    </div>
+                    <!------- SEARCH BAR ------->
+                    <div class="search-bar">
+                        <i class="uil uil-search"></i>
+                        <input type="search" placeholder="Search messages" id="message-search">
+                    </div>
+                    <!------- MESSAGES CATEGORY ------->
+                    <div class="category">
+                        <h6 class="active">Primary</h6>
+                        <h6>General</h6>
+                        <h6 class="message-requests">Requests (7)</h6>
+                    </div>
+                    <!------- MESSAGES ------->
+                    <div class="message">
+                        <div class="profile-photo">
+                            <img src="./images/profile-17.jpg">
+                        </div>
+                        <div class="message-body">
+                            <h5>Narendra Modi</h5>
+                            <p class="text-muted">Sabka Saath Sabka Vikas</p>
+                        </div>
+                    </div>
+                    <!------- MESSAGES ------->
+                    <div class="message">
+                        <div class="profile-photo">
+                            <img src="https://img.etimg.com/thumb/msid-99605400,width-650,height-488,imgsize-28124,resizemode-75/priyanka-chopra-jonas.jpg">
+                        </div>
+                        <div class="message-body">
+                            <h5>Priyanka Chopra</h5>
+                            <p class="text-bold">Escape reality with a strong mind, not drugs. </p>
+                        </div>
+                    </div>
+                    <!------- MESSAGES ------->
+                    <div class="message">
+                        <div class="profile-photo">
+                            <img src="./images/profile-8.jpg">
+                            <div class="active"></div>
+                        </div>
+                        <div class="message-body">
+                            <h5>Andrew Tate</h5>
+                            <p class="text-muted">Welcome to the real world!!</p>
+                        </div>
+                    </div>
+                    <!------- MESSAGES ------->
+                    <div class="message">
+                        <div class="profile-photo">
+                            <img src="https://static01.nyt.com/images/2021/06/29/world/29nkorea-1/29nkorea-1-mediumSquareAt3X.jpg">
+                        </div>
+                        <div class="message-body">
+                            <h5>Kim Jong Un</h5>
+                            <p class="text-muted">나는 당신을 지지한다</p>
+                        </div>
+                    </div>
+                    <!------- MESSAGES ------->
+                    <div class="message">
+                        <div class="profile-photo">
+                            <img src="https://s.ndtvimg.com/images/entities/300/ms-dhoni-700.png">
+                            <div class="active"></div>
+                        </div>
+                        <div class="message-body">
+                            <h5>MS Dhoni
+</h5>
+                            <p class="text-bold">5 new messages</p>
+                        </div>
+                    </div>
+                    <!------- MESSAGES ------->
+                    <div class="message">
+                        <div class="profile-photo">
+                            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRaT2WozXdM9ChvdlD38Wp0--s6sgOqG4lbgwvrO5Ou16gUzNsE">
+                        </div>
+                        <div class="message-body">
+                            <h5>Dwayne Johnson</h5>
+                            <p class="text-muted">haha got that!</p>
+                        </div>
+                    </div>
+                </div>
+                <!------- END OF MESSAGES ------->
+
+                <!------- FRIEND REQUEST ------->
+                <div class="friend-requests">
+                    <h4>Requests</h4>
+                    <div class="request">
+                        <div class="info">
+                            <div class="profile-photo">
+                                <img src="data:image/jpeg;base64,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">
+                            </div>
+                            <div>
+                                <h5>Hail Hitler</h5>
+                                <p class="text-muted">8 mutual friends</p>
+                            </div>
+                        </div>
+                        <div class="action">
+                            <button class="btn btn-primary">
+                                Accept
+                            </button>
+                            <button class="btn">
+                                Decline
+                            </button>
+                        </div>
+                    </div>
+                    <div class="request">
+                        <div class="info">
+                            <div class="profile-photo">
+                                <img src="./images/profile-18.jpg">
+                            </div>
+                            <div>
+                                <h5>Edelson Mandela</h5>
+                                <p class="text-muted">2 mutual friends</p>
+                            </div>
+                        </div>
+                        <div class="action">
+                            <button class="btn btn-primary">
+                                Accept
+                            </button>
+                            <button class="btn">
+                                Decline
+                            </button>
+                        </div>
+                    </div>
+                    <div class="request">
+                        <div class="info">
+                            <div class="profile-photo">
+                                <img src="">
+                            </div>
+                            <div>
+                                <h5></h5>
+                                <p class="text-muted">5 mutual friends</p>
+                            </div>
+                        </div>
+                        <div class="action">
+                            <button class="btn btn-primary">
+                                Accept
+                            </button>
+                            <button class="btn">
+                                Decline
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!----------------- END OF RIGHT -------------------->
+        </div>
+    </main>
+
+    <!----------------- THEME CUSTOMIZATION -------------------->
+    <div class="customize-theme">
+        <div class="card">
+            <h2>Customize your view</h2>
+            <p class="text-muted">Manage your font size, color, and background</p>
+
+            <!----------- FONT SIZE ----------->
+            <div class="font-size">
+                <h4>Font Size</h4>
+                <div>
+                    <h6>Aa</h6>
+                    <div class="choose-size">
+                        <span class="font-size-1"></span>
+                        <span class="font-size-2 active"></span>
+                        <span class="font-size-3"></span>
+                        <span class="font-size-4"></span>
+                        <span class="font-size-5"></span>
+                    </div>
+                    <h3>Aa</h3>
+                </div>
+            </div>
+
+            <!----------- PRIMARY COLORS ----------->
+            <div class="color">
+                <h4>Color</h4>
+                <div class="choose-color">
+                    <span class="color-1 active"></span>
+                    <span class="color-2"></span>
+                    <span class="color-3"></span>
+                    <span class="color-4"></span>
+                    <span class="color-5"></span>
+                </div>
+            </div>
+
+            <!----------- BACKGROUND COLORS ----------->
+            <div class="background">
+                <h4>Background</h4>
+                <div class="choose-bg">
+                    <div class="bg-1 active">
+                        <span></span>
+                        <h5 for="bg-1">Light</h5>
+                    </div>
+                    <div class="bg-2">
+                        <span></span>
+                        <h5 for="bg-2">Dim</h5>
+                    </div>
+                    <div class="bg-3">
+                        <span></span>
+                        <h5 for="bg-3">Dark</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
